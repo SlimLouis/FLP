@@ -9,35 +9,44 @@ User userFromJson(String str) => User.fromJson(json.decode(str));
 String userToJson(User data) => json.encode(data.toJson());
 
 class User {
-    int id;
-    String vNom;
-    String vPrenom;
-    String vAddress;
-    int vNumero;
-    String vEmail;
-    String vSpecialite;
-    String vMotDePasse;
-    String vPhoto;
-    int cliniqueId;
-    DateTime createdAt;
-    DateTime updatedAt;
+  int id;
+  String vNom;
+  String vPrenom;
+  String vAddress;
+  int vNumero;
+  String vEmail;
+  String vSpecialite;
+  String vMotDePasse;
+  String vPhoto;
+  int cliniqueId;
+  DateTime createdAt;
+  DateTime updatedAt;
 
-    User({
-        this.id,
-        this.vNom,
-        this.vPrenom,
-        this.vAddress,
-        this.vNumero,
-        this.vEmail,
-        this.vSpecialite,
-        this.vMotDePasse,
-        this.vPhoto,
-        this.cliniqueId,
-        this.createdAt,
-        this.updatedAt,
-    });
+  User({
+    this.id,
+    this.vNom,
+    this.vPrenom,
+    this.vAddress,
+    this.vNumero,
+    this.vEmail,
+    this.vSpecialite,
+    this.vMotDePasse,
+    this.vPhoto,
+    this.cliniqueId,
+    this.createdAt,
+    this.updatedAt,
+  });
+  static fillUser(List<User> ok) {
+    ok.add(User(vNom: "amir"));
+    ok.add(User(vNom: "sorour"));
 
-    factory User.fromJson(Map<String, dynamic> json) => User(
+    ok.add(User(vNom: "hedia"));
+    ok.add(User(vNom: "mourad"));
+    ok.add(User(vNom: "abdelhamid"));
+    return ok;
+  }
+
+  factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["id"],
         vNom: json["vNom"],
         vPrenom: json["vPrenom"],
@@ -50,9 +59,9 @@ class User {
         cliniqueId: json["CliniqueId"],
         createdAt: DateTime.parse(json["createdAt"]),
         updatedAt: DateTime.parse(json["updatedAt"]),
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "vNom": vNom,
         "vPrenom": vPrenom,
@@ -65,5 +74,5 @@ class User {
         "CliniqueId": cliniqueId,
         "createdAt": createdAt.toIso8601String(),
         "updatedAt": updatedAt.toIso8601String(),
-    };
+      };
 }
